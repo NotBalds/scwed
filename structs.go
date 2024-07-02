@@ -8,10 +8,21 @@ type Message struct {
 type Database map[string][]Message
 
 type User struct {
-	Uuid string // UUID
+	Uuid             string // UUID
+	GetTime          string
+	GetTimeSignature string
+}
+
+type Register map[string]string
+
+type Registration struct {
+	Uuid      string
+	PublicKey string
 }
 
 type Send struct {
-	Receiver string
+	Receiver          string
+	SendTime          string
+	SendTimeSignature string
 	Message
 }
