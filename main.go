@@ -7,7 +7,6 @@ import (
 	"crypto/x509"
 	"encoding/base64"
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -33,7 +32,6 @@ func main() {
 			by_sender[v.Sender] = append(by_sender[v.Sender], v)
 		}
 		for k := range by_sender {
-			fmt.Println("From " + k + ":")
 			for _, v := range by_sender[k] {
 				bts, _ := base64.StdEncoding.DecodeString(v.Content)
 				decr, _ := rsa.DecryptPKCS1v15(rand.Reader, key, bts)
