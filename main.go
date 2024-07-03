@@ -31,7 +31,7 @@ func main() {
 		signature := base64.StdEncoding.EncodeToString(btssig)
 
 		data, _ := json.Marshal(User{id, strconv.FormatInt(time.Now().Unix(), 10), signature})
-		res, _ := http.Post("http://0.0.0.0:1337/get", "application/json", bytes.NewReader(data))
+		res, _ := http.Post("http://bald.su:1337/get", "application/json", bytes.NewReader(data))
 		body, _ := io.ReadAll(res.Body)
 		var msgs []Message
 		_ = json.Unmarshal(body, &msgs)
